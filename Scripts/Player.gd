@@ -7,8 +7,6 @@ export var speed = 100
 export var jump_speed = 300
 var motion = Vector2(0,0)
 
-# var gravity : Gravity
-
 func _physics_process(delta):
 	move_and_slide(motion, UP)
 	
