@@ -15,8 +15,26 @@ func _physics_process(delta):
 	animate()
 	
 func move():
-	u.motion = u.movement.move(u.motion, speed, gravity, jump_speed, is_on_floor())
-	move_and_slide(u.motion, u.UP)
+	var motion = Vector2(u.motionBundle[0], u.motionBundle[1])
+	var hasInercia : bool = not $InertiaTimer.is_stopped()
+	var direction = u.motionBundle[3]
+	
+	u.motionBundle = u.movement.move(
+		motion, 
+		speed, 
+		gravity, 
+		jump_speed, 
+		is_on_floor(),
+		hasInercia,
+		direction
+		)
+	
+	hasInercia = u.motionBundle[2]
+	
+	if hasInercia && $InertiaTimer.is_stopped():
+		$InertiaTimer.start()
+	
+	move_and_slide(motion, u.UP)
 	
 func animate():
 	u.animation.animate(is_on_floor(), $PlayerAnimatedSprite)
