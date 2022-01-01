@@ -31,16 +31,18 @@ extents = Vector2( 4.42642, 18.1469 )
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 2
 script = ExtResource( 6 )
+gravity = 2
 
 [node name="PlayerAnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "jump"
+animation = "idle"
 speed_scale = 0.5
 playing = true
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 0.174824, 1.57342 )
+scale = Vector2( 1.5, 1 )
 shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]

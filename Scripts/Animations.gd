@@ -1,4 +1,4 @@
-func animate(is_on_floor, sprite):
+func animate(is_on_floor, sprite, is_on_wall):
 	if Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
 		sprite.flip_h = false
 		sprite.play("run")
@@ -8,6 +8,5 @@ func animate(is_on_floor, sprite):
 	else:
 		sprite.play("idle")
 
-	if not is_on_floor:
+	if not is_on_floor && not is_on_wall:
 		sprite.play("jump")
-	

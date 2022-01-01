@@ -26,6 +26,5 @@ func move():
 		)
 		
 	move_and_slide(motion, u.UP)
-	
 func animate():
-	u.animation.animate(is_on_floor(), $PlayerAnimatedSprite)
+	u.animation.animate(is_on_floor(), $PlayerAnimatedSprite, is_on_wall())
