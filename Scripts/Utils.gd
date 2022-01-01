@@ -5,4 +5,9 @@ var movementScript = load("res://Scripts/Movement.gd")
 var animation = animationScript.new()
 var movement = movementScript.new()
 
-var motionBundle : Array = [0.0, 0.0, false, "right"]
+var motionBundle = {
+	"motion x" : 0.0,
+	"motion y" : 0.0,
+	"inertia" : false,
+	"direction" : "right"
+}

@@ -15,9 +15,9 @@ func _physics_process(delta):
 	animate()
 	
 func move():
-	var motion = Vector2(u.motionBundle[0], u.motionBundle[1])
+	var motion = Vector2(u.motionBundle["motion x"], u.motionBundle["motion y"])
 	var hasInercia : bool = not $InertiaTimer.is_stopped()
-	var direction = u.motionBundle[3]
+	var direction = u.motionBundle["direction"]
 	
 	u.motionBundle = u.movement.move(
 		motion, 
@@ -29,7 +29,7 @@ func move():
 		direction
 		)
 	
-	hasInercia = u.motionBundle[2]
+	hasInercia = u.motionBundle["inertia"]
 	
 	if hasInercia && $InertiaTimer.is_stopped():
 		$InertiaTimer.start()
