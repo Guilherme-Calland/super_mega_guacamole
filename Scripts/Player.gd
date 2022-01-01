@@ -16,24 +16,15 @@ func _physics_process(delta):
 	
 func move():
 	var motion = Vector2(u.motionBundle["motion"])
-	var hasInercia : bool = not $InertiaTimer.is_stopped()
-	var direction = u.motionBundle["direction"]
 	
 	u.motionBundle = u.movement.move(
 		motion, 
 		speed, 
 		gravity, 
 		jump_speed, 
-		is_on_floor(),
-		hasInercia,
-		direction
+		is_on_floor()
 		)
-	
-	hasInercia = u.motionBundle["inertia"]
-	
-	if hasInercia && $InertiaTimer.is_stopped():
-		$InertiaTimer.start()
-	
+		
 	move_and_slide(motion, u.UP)
 	
 func animate():

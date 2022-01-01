@@ -5,7 +5,5 @@ var animation = animationScript.new()
 var movement = movementScript.new()
 
 var motionBundle = {
-	"motion" : Vector2(0,0),
-	"inertia" : false,
-	"direction" : "right"
+	"motion" : Vector2(0,0)
 }

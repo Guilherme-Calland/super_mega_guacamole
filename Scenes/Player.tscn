@@ -1,33 +1,25 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Graphics/gui_idle_2.png" type="Texture" id=1]
-[ext_resource path="res://Graphics/gui_idle.png" type="Texture" id=2]
-[ext_resource path="res://Graphics/gui_walk_2.png" type="Texture" id=3]
-[ext_resource path="res://Graphics/gui_walk_1.png" type="Texture" id=4]
-[ext_resource path="res://Graphics/gui_walk_3.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/Player/gui_idle.png" type="Texture" id=1]
+[ext_resource path="res://Graphics/Player/gui_running_1.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/Player/gui_jumping.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/Player/gui_running_2.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/Player/gui_idle_2.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=6]
-[ext_resource path="res://Graphics/gui_jumping.png" type="Texture" id=7]
-[ext_resource path="res://Graphics/gui_running_2.png" type="Texture" id=8]
-[ext_resource path="res://Graphics/gui_running_1.png" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 1 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "walk",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 1 ), ExtResource( 9 ), ExtResource( 1 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "run",
 "speed": 10.0
@@ -52,10 +44,6 @@ position = Vector2( 0.174824, 1.57342 )
 shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 9.24208, -61.8831 )
+position = Vector2( 3.56984, -25.3287 )
 current = true
 smoothing_enabled = true
-
-[node name="InertiaTimer" type="Timer" parent="."]
-wait_time = 0.25
-one_shot = true
