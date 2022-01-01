@@ -1,12 +1,5 @@
 func move(motion, speed, gravity, jump_speed, is_on_floor, hasInertia, direction):
 	
-	var motionBundle = {
-		"motion x" : motion.x,
-		"motion y" : motion.y,
-		"inercia" : hasInertia,
-		"direction" : direction
-	}
-	
 	if Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
 		direction = "right"
 		if is_on_floor:
@@ -39,8 +32,13 @@ func move(motion, speed, gravity, jump_speed, is_on_floor, hasInertia, direction
 		elif direction == "left":
 			motion.x -= speed/ 2
 	
-	motionBundle["motion x"] = motion.x
-	motionBundle["motion y"] = motion.y
+	var motionBundle = {
+		"motion" : motion,
+		"inertia" : hasInertia,
+		"direction" : direction
+	}
+	
+	motionBundle["motion"] = motion
 	motionBundle["inertia"] = hasInertia
 	motionBundle["direction"] = direction
 	
