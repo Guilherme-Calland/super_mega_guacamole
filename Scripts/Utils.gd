@@ -6,4 +6,5 @@ var movement = movementScript.new()
 
 var motionBundle = {
 	"motion" : Vector2(0,0),
+	"hurt" : false
 }
