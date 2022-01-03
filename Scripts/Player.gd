@@ -16,27 +16,23 @@ func _physics_process(delta):
 	
 func move():
 	var motion : Vector2 = u.motionBundle["motion"]
-	var hurt : bool = u.motionBundle["hurt"]
 	
 	u.motionBundle = u.movement.move(
 		motion, 
 		speed, 
 		gravity, 
 		jump_speed, 
-		is_on_floor(),
-		hurt
+		is_on_floor()
 		)
 		
 	move_and_slide(motion, u.UP)
 	
 func animate():
-	var hurt = u.motionBundle["hurt"]
 	
 	u.animation.animate(
 		is_on_floor(), 
 		$PlayerAnimatedSprite, 
-		is_on_wall(),
-		hurt
+		is_on_wall()
 		)
 
 func hurt():
