@@ -5,5 +5,6 @@ var animation = animationScript.new()
 var movement = movementScript.new()
 
 var motionBundle = {
-	"motion" : Vector2(0,0)
+	"motion" : Vector2(0,0),
+	"hurt" : false
 }

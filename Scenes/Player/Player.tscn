@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Graphics/Player/gui_idle.png" type="Texture" id=1]
 [ext_resource path="res://Graphics/Player/gui_running_1.png" type="Texture" id=2]
@@ -6,36 +6,42 @@
 [ext_resource path="res://Graphics/Player/gui_running_2.png" type="Texture" id=4]
 [ext_resource path="res://Graphics/Player/gui_idle_2.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=6]
+[ext_resource path="res://Graphics/Player/gui_machucado.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "jump",
+"name": "hurt",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "run",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 4.42642, 18.1469 )
 
 [node name="Player" type="KinematicBody2D"]
-collision_mask = 2
+collision_mask = 6
 script = ExtResource( 6 )
 gravity = 2
 
 [node name="PlayerAnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "idle"
+animation = "jump"
 speed_scale = 0.5
 playing = true
 
