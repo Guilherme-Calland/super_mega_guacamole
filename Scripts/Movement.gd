@@ -1,4 +1,4 @@
-func move(motion, speed, gravity, jump_speed, is_on_floor, hurt):
+func move(motion, speed, gravity, jump_speed, is_on_floor, hurt, floor_count_buffer):
 	
 	if Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
 		if is_on_floor:
@@ -18,12 +18,19 @@ func move(motion, speed, gravity, jump_speed, is_on_floor, hurt):
 	if Input.is_action_pressed("jump") or hurt:
 		if is_on_floor:
 			motion.y -= jump_speed
-		else:
-			hurt = false
+	
+	if hurt:
+		floor_count_buffer -= 1
+	
+	if is_on_floor and floor_count_buffer <= 0:
+		hurt = false
+		floor_count_buffer = 4
+	
 	
 	var motionBundle = {
 		"motion" : motion,
-		"hurt" : hurt
+		"hurt" : hurt,
+		"floor_count_buffer" : floor_count_buffer
 	}
 	
 	return motionBundle
