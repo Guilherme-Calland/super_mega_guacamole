@@ -13,15 +13,13 @@ func _ready():
 	u = utilsScript.new()
 
 func _physics_process(delta):
-	move()
 	animate()
+	move()
 	
 func move():
 	var motion : Vector2 = u.motionBundle["motion"]
 	var hurt = u.motionBundle["hurt"]
 	var floor_count_buffer = u.motionBundle["floor_count_buffer"]
-	
-	print(floor_count_buffer)
 	
 	u.motionBundle = u.movement.move(
 		motion, 

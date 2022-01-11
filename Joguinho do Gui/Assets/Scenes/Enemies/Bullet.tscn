@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/GFX/Enemies/bullet.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Scenes/Enemies/Bullet.gd" type="Script" id=2]
+[ext_resource path="res://Assets/GFX/Enemies/bullet_blood.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "bloody",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=2]
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2( 1, 1.0035 )
+collision_layer = 4
+collision_mask = 19
+
+[node name="Sprite" type="AnimatedSprite" parent="Area2D"]
+position = Vector2( 0, -0.0625 )
+frames = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="Area2D"]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+polygon = PoolVector2Array( -5.93751, 0.250067, -2.87501, -3.24994, 2.18751, -5.06245, 5.56252, -4.99995, 5.50002, 4.93758, 2.06251, 5.00008, -2.87501, 3.18757 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
+anims/traveling = SubResource( 2 )
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="screen_exited" from="Area2D/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

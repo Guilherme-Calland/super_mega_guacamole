@@ -8,8 +8,9 @@ func animate(is_on_floor, sprite, is_on_wall, hurt):
 	else:
 		sprite.play("idle")
 
-	if not is_on_floor:
+	if not is_on_floor and not hurt:
 		sprite.play("jump")
+		print("test")
 		
 	if is_on_wall:
 		sprite.play("grab")

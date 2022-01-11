@@ -1,0 +1,135 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Assets/GFX/Players/gui_idle.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Scenes/Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Scenes/GUI/GUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/GFX/Players/gui_idle_2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/GFX/Players/gui_pushing_w_hands.png" type="Texture" id=5]
+[ext_resource path="res://Assets/GFX/Players/gui_pushing_w_hands_2.png" type="Texture" id=6]
+[ext_resource path="res://Assets/GFX/Players/gui_machucado.png" type="Texture" id=7]
+[ext_resource path="res://Assets/GFX/Players/gui_ducked_2.png" type="Texture" id=8]
+[ext_resource path="res://Assets/GFX/Players/gui_walk1.png" type="Texture" id=9]
+[ext_resource path="res://Assets/GFX/Players/gui_ducked.png" type="Texture" id=10]
+[ext_resource path="res://Assets/GFX/Players/gui_jumping2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/GFX/Players/gui_walk3.png" type="Texture" id=12]
+[ext_resource path="res://Assets/GFX/Players/gui_walk2.png" type="Texture" id=13]
+[ext_resource path="res://Assets/GFX/Players/gui_duck_walk_1.png" type="Texture" id=14]
+[ext_resource path="res://Assets/GFX/Players/gui_duck_walk_2.png" type="Texture" id=15]
+[ext_resource path="res://Assets/GFX/Players/gui_push_walk_1.png" type="Texture" id=16]
+[ext_resource path="res://Assets/GFX/Players/gui_push_walk_2.png" type="Texture" id=17]
+[ext_resource path="res://Assets/GFX/Players/gui_push_walk_3.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Scenes/Player/Hands.gd" type="Script" id=19]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "push",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "duck",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "push_walk",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 10 ), ExtResource( 15 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "duck_walk",
+"speed": 15.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 4.92334
+height = 28.487
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 1.13065, 2.80701 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 4.97675, 0.182022 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 273.242, 232.182 )
+collision_mask = 10
+script = ExtResource( 2 )
+lives = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 29.2166, -1.2843 )
+current = true
+smoothing_enabled = true
+
+[node name="SoundEffects" type="AudioStreamPlayer" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+
+[node name="GUI" parent="." instance=ExtResource( 3 )]
+
+[node name="PlayerAnimation" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 0.0441895 )
+scale = Vector2( 1, 1.00711 )
+frames = SubResource( 1 )
+animation = "idle"
+speed_scale = 0.5
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0.459717, 0.734818 )
+shape = SubResource( 2 )
+
+[node name="Hands" type="Node2D" parent="."]
+script = ExtResource( 19 )
+
+[node name="HandRight" type="Area2D" parent="Hands"]
+position = Vector2( 10.8562, -0.632584 )
+collision_layer = 64
+collision_mask = 136
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hands/HandRight"]
+shape = SubResource( 3 )
+disabled = true
+
+[node name="HandLeft" type="Area2D" parent="Hands"]
+position = Vector2( -10.856, -0.632996 )
+collision_layer = 64
+collision_mask = 136
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hands/HandLeft"]
+shape = SubResource( 3 )
+disabled = true
+
+[node name="PlayersFeet" type="Area2D" parent="."]
+collision_layer = 1024
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayersFeet"]
+position = Vector2( 0.625, 19.9375 )
+shape = SubResource( 4 )
+[connection signal="body_entered" from="Hands/HandRight" to="Hands" method="_on_HandRight_body_entered"]
+[connection signal="body_entered" from="Hands/HandLeft" to="Hands" method="_on_HandLeft_body_entered"]

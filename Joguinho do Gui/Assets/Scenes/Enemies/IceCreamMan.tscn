@@ -1,0 +1,125 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/GFX/Enemies/ice_cream_man/ice_cream_man_ready_1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/GFX/Enemies/ice_cream_man/ice_cream_man_ready_2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/GFX/Enemies/ice_cream_man/ice_cream_man_holding_popcicle.png" type="Texture" id=3]
+[ext_resource path="res://Assets/GFX/Enemies/ice_cream_man/ice_cream_man_holding_popcicle_2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Scenes/Enemies/IceCreamMan.gd" type="Script" id=5]
+[ext_resource path="res://Assets/GFX/Enemies/ice_cream_man/ice_cream_man_smooshed_1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/GFX/Enemies/ice_cream_man/ice_cream_man_smooshed_2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/GFX/Enemies/ice_cream_man/ice_cream_man_throwing_1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/GFX/Enemies/ice_cream_man/ice_cream_man_throwing_3.png" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "smooshed",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "popsicled",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "throwing",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5, 3.75 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 9.74664, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 9, 21 )
+
+[node name="IceCreamMan" type="KinematicBody2D"]
+position = Vector2( 0, -0.25 )
+collision_layer = 128
+collision_mask = 2
+script = ExtResource( 5 )
+
+[node name="PositionNode" type="Node2D" parent="."]
+position = Vector2( 5.65686, 0 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="PositionNode"]
+position = Vector2( 0, -1.25 )
+frames = SubResource( 1 )
+animation = "popsicled"
+frame = 1
+speed_scale = 0.5
+playing = true
+
+[node name="Top" type="Area2D" parent="PositionNode"]
+collision_layer = 16
+
+[node name="TopCollisionShape" type="CollisionShape2D" parent="PositionNode/Top"]
+visible = false
+position = Vector2( 15.25, -14.25 )
+shape = SubResource( 2 )
+
+[node name="Side" type="Area2D" parent="PositionNode"]
+collision_layer = 16
+
+[node name="SideCollisionShape" type="CollisionShape2D" parent="PositionNode/Side"]
+visible = false
+position = Vector2( 15.0251, 12.25 )
+shape = SubResource( 3 )
+
+[node name="PopsicleSpawn" type="Node2D" parent="PositionNode"]
+position = Vector2( -2.90901, -8.77728 )
+
+[node name="PopsicleRayCast" type="RayCast2D" parent="PositionNode"]
+position = Vector2( -38.8345, 0.353546 )
+scale = Vector2( 0.879999, 1 )
+enabled = true
+cast_to = Vector2( -150, 0 )
+
+[node name="PopsicleRayCastUp" type="RayCast2D" parent="PositionNode"]
+position = Vector2( -38.8345, 0.353546 )
+scale = Vector2( 0.879999, 1 )
+enabled = true
+cast_to = Vector2( -200, -120 )
+
+[node name="PopsicleRayCastDown" type="RayCast2D" parent="PositionNode"]
+position = Vector2( -38.8345, 0.353546 )
+scale = Vector2( 0.879999, 1 )
+enabled = true
+cast_to = Vector2( -200, 120 )
+
+[node name="KinematicBodyCollision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 18, 3.75 )
+shape = SubResource( 4 )
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="DisapearTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="TopCollisionTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="ThrowTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="SoundEffects2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="SoundEffects" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
+[connection signal="body_entered" from="PositionNode/Top" to="." method="_on_Top_body_entered"]
+[connection signal="body_entered" from="PositionNode/Side" to="." method="_on_Side_body_entered"]
+[connection signal="timeout" from="MoveTimer" to="." method="_on_MoveTimer_timeout"]
+[connection signal="timeout" from="DisapearTimer" to="." method="_on_DisapearTimer_timeout"]
+[connection signal="timeout" from="TopCollisionTimer" to="." method="_on_TopCollisionTimer_timeout"]
+[connection signal="timeout" from="ThrowTimer" to="." method="_on_ThrowTimer_timeout"]
