@@ -16,15 +16,15 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "run",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "hurt",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
@@ -47,7 +47,7 @@ gravity = 2
 
 [node name="PlayerAnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "grab"
+animation = "hurt"
 speed_scale = 0.5
 playing = true
 
@@ -60,4 +60,5 @@ shape = SubResource( 2 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 3.56984, -25.3287 )
 current = true
+zoom = Vector2( 0.5, 0.5 )
 smoothing_enabled = true

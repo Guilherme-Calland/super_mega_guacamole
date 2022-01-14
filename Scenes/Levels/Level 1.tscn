@@ -12,7 +12,7 @@
 [node name="Level 1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 3171.16, -47.9928 )
+position = Vector2( 929.832, -7.51202 )
 z_index = 100
 gravity = 10
 speed = 200
@@ -76,11 +76,12 @@ __meta__ = {
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 position = Vector2( -557.136, -84.8719 )
-motion_mirroring = Vector2( 1650, 0 )
+motion_mirroring = Vector2( 1500, 0 )
 
 [node name="TextureRect" type="TextureRect" parent="Background/ParallaxBackground/ParallaxLayer4"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_top = -0.492447
+margin_right = 1700.0
+margin_bottom = 707.508
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false

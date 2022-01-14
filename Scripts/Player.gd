@@ -13,8 +13,8 @@ func _ready():
 	u = utilsScript.new()
 
 func _physics_process(delta):
-	animate()
 	move()
+	animate()
 	
 func move():
 	var motion : Vector2 = u.motionBundle["motion"]
