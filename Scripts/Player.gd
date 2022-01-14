@@ -4,7 +4,6 @@ export var gravity = 10
 export var speed = 100
 export var jump_speed = 300
 
-var hurt_animation = false
 var u
 
 func _ready():
@@ -35,13 +34,16 @@ func move():
 		
 	
 func animate():
-	var hurt = u.motionBundle["hurt"]
-	u.animation.animate(
+	var hurtAnimation = u.animationBundle["hurtAnimation"]
+	var motion = u.motionBundle["motion"]
+	u.animationBundle = u.animation.animate(
 		is_on_floor(), 
 		$PlayerAnimatedSprite, 
 		is_on_wall(),
-		hurt
+		hurtAnimation,
+		motion
 		)
 
 func hurt():
 	u.motionBundle["hurt"] = true
+	u.animationBundle["hurtAnimation"] = true

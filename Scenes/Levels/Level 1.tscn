@@ -12,7 +12,7 @@
 [node name="Level 1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 3356.16, -93.9389 )
+position = Vector2( -522.018, -126.184 )
 z_index = 100
 gravity = 10
 speed = 200
@@ -38,7 +38,7 @@ tile_data = PoolIntArray( 65517, 0, 0, 65518, 0, 0, 65519, 0, 0, 65520, 0, 0, 65
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 position = Vector2( -540.977, -457.75 )
 motion_scale = Vector2( 0.25, 1 )
-motion_mirroring = Vector2( 1650, 1100 )
+motion_mirroring = Vector2( 3200, 1100 )
 
 [node name="TextureRect" type="TextureRect" parent="Background/ParallaxBackground/ParallaxLayer"]
 margin_right = 40.0
@@ -51,7 +51,7 @@ __meta__ = {
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 position = Vector2( -523.638, -388.394 )
 motion_scale = Vector2( 0.5, 1 )
-motion_mirroring = Vector2( 1648, 0 )
+motion_mirroring = Vector2( 3848, 0 )
 
 [node name="TextureRect" type="TextureRect" parent="Background/ParallaxBackground/ParallaxLayer2"]
 margin_right = 40.0
@@ -64,7 +64,7 @@ __meta__ = {
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 position = Vector2( -550.631, -291.958 )
 motion_scale = Vector2( 0.75, 1 )
-motion_mirroring = Vector2( 1500, 0 )
+motion_mirroring = Vector2( 3180, 0 )
 
 [node name="TextureRect" type="TextureRect" parent="Background/ParallaxBackground/ParallaxLayer3"]
 margin_right = 40.0
@@ -76,7 +76,7 @@ __meta__ = {
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 position = Vector2( -557.136, -84.8719 )
-motion_mirroring = Vector2( 1500, 0 )
+motion_mirroring = Vector2( 3200, 0 )
 
 [node name="TextureRect" type="TextureRect" parent="Background/ParallaxBackground/ParallaxLayer4"]
 margin_top = -0.492447

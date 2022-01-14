@@ -8,3 +8,7 @@ var motionBundle = {
 	"motion" : Vector2(0,0),
 	"hurt" : false,
 }
+
+var animationBundle = {
+	"hurtAnimation" : false
+}
