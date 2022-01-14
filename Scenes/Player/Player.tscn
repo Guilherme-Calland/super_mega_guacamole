@@ -47,7 +47,7 @@ gravity = 2
 
 [node name="PlayerAnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "hurt"
+animation = "jump"
 speed_scale = 0.5
 playing = true
 
@@ -60,5 +60,3 @@ shape = SubResource( 2 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 3.56984, -25.3287 )
 current = true
-zoom = Vector2( 0.5, 0.5 )
-smoothing_enabled = true

@@ -5,7 +5,6 @@ export var speed = 100
 export var jump_speed = 300
 
 var hurt_animation = false
-
 var u
 
 func _ready():
@@ -19,24 +18,24 @@ func _physics_process(delta):
 func move():
 	var motion : Vector2 = u.motionBundle["motion"]
 	var hurt = u.motionBundle["hurt"]
-	var floor_count_buffer = u.motionBundle["floor_count_buffer"]
+	
+	move_and_slide(motion, u.UP)
+	var is_on_floor = is_on_floor()
+	if motion.y < 0:
+		is_on_floor = false
 	
 	u.motionBundle = u.movement.move(
 		motion, 
 		speed, 
 		gravity, 
 		jump_speed, 
-		is_on_floor(),
-		hurt,
-		floor_count_buffer
+		is_on_floor,
+		hurt
 		)
 		
-	move_and_slide(motion, u.UP)
 	
 func animate():
-	
 	var hurt = u.motionBundle["hurt"]
-	
 	u.animation.animate(
 		is_on_floor(), 
 		$PlayerAnimatedSprite, 

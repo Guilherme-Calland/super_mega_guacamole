@@ -7,7 +7,10 @@ func animate(is_on_floor, sprite, is_on_wall, hurt):
 		sprite.play("run")
 	else:
 		sprite.play("idle")
-
+	
+	if is_on_floor and Input.is_action_pressed("jump"):
+		sprite.play("jump")
+	
 	if not is_on_floor and not hurt:
 		sprite.play("jump")
 		
