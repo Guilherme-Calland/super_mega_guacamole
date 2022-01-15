@@ -10,6 +10,7 @@ var hurt = false
 
 var motionBundle = {
 	"motion" : Vector2(0,0),
+	"direction" : "left"
 }
 
 var animationBundle = {

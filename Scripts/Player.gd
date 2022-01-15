@@ -3,6 +3,7 @@ extends KinematicBody2D
 export var gravity = 10
 export var speed = 100
 export var jump_speed = 300
+export var wall_push_force = 150
 
 var u
 
@@ -19,12 +20,14 @@ func retrieveInput():
 	u.inputBundle = u.input.retrieveInput()
 	
 func move():
+	
 	var motion = u.motionBundle["motion"]
 	move_and_slide(motion, u.UP)
 	u.motionBundle = u.movement.move(
 		speed, 
 		gravity, 
 		jump_speed, 
+		wall_push_force,
 		checkIfOnFloor(motion),
 		is_on_wall(),
 		u.motionBundle,

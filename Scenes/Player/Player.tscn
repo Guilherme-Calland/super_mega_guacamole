@@ -50,10 +50,11 @@ extents = Vector2( 5.70285, 18.1469 )
 collision_mask = 6
 script = ExtResource( 6 )
 gravity = 2
+wall_push_force = 300
 
 [node name="PlayerAnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "grab"
+animation = "jump"
 speed_scale = 0.5
 playing = true
 
