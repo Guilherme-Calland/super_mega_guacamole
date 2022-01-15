@@ -20,19 +20,22 @@ func retrieveInput():
 	u.inputBundle = u.input.retrieveInput()
 	
 func move():
-	var prevMotion = u.motionBundle["motion"]
-	var prevDirection = u.motionBundle["direction"]
-	var prevIsOnWall = is_on_wall()
-	move_and_slide(prevMotion, u.UP)
+	var motion = u.motionBundle["motion"]
+	var direction = u.motionBundle["direction"]
 	
+	# once move_and slide is called this changes the
+	# is_on_wall() and is_on_ceiling()
+	var prevIsOnWall = is_on_wall()
+	
+	move_and_slide(motion, u.UP)
 	u.motionBundle = u.movement.move(
 		speed, 
 		gravity, 
 		jumpSpeed, 
 		wallPushForce,
-		isOnFloor(u.motionBundle["motion"]),
+		isOnFloor(motion),
 		is_on_wall(),
-		justOnWallStatus(prevIsOnWall, prevDirection),
+		is_on_ceiling(),
 		u.motionBundle,
 		u.inputBundle
 		)
@@ -57,12 +60,12 @@ func isOnFloor(motion):
 	if motion.y < 0:
 		isOnFloor = false
 	return isOnFloor
-
-func justOnWallStatus(wasOnWall, direction):
-	if wasOnWall != is_on_wall():
-		if !is_on_wall():
-			if direction == "right":
-				return "justOnRightWall"
-			elif direction == "left":
-				return "justOnLeftWall"
-	return "notJustOnWall"
+#
+#func justOnWallStatus(wasOnWall, direction):
+#	if wasOnWall != is_on_wall():
+#		if !is_on_wall():
+#			if direction == "right":
+#				return "justOnRightWall"
+#			elif direction == "left":
+#				return "justOnLeftWall"
+#	return "notJustOnWall"
