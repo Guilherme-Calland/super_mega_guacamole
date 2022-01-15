@@ -12,3 +12,9 @@ var motionBundle = {
 var animationBundle = {
 	"hurtAnimation" : false
 }
+
+var inputBundle = {
+	"right" : false,
+	"left" : false,
+	"jump" : false
+}

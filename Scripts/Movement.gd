@@ -23,6 +23,8 @@ func move(motion, speed, gravity, jump_speed, is_on_floor, hurt):
 		motion.y = -jump_speed
 		hurt = false
 	
+	
+	
 	var motionBundle = {
 		"motion" : motion,
 		"hurt" : hurt,

@@ -18,7 +18,7 @@ func animate(is_on_floor, sprite, is_on_wall, hurtAnimation, motion):
 		sprite.play("jump")
 		
 	if is_on_wall:
-		sprite.play("grab")
+		sprite.play("pregrab")
 		
 	if hurtAnimation:
 		sprite.play("hurt")
