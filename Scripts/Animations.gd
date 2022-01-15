@@ -16,7 +16,7 @@ func animate(sprite, is_on_floor, is_on_wall, hurtAnimation, motion, inputBundle
 			
 		if jump:
 			sprite.play("jump")
-		if falling(motion):
+		if motion.y > 0:
 			hurtAnimation = false
 	
 	if not is_on_floor:
@@ -38,5 +38,3 @@ func animate(sprite, is_on_floor, is_on_wall, hurtAnimation, motion, inputBundle
 	
 	return animationBundle
 	
-func falling(motion):
-	return motion.y > 0

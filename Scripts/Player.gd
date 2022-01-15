@@ -21,7 +21,6 @@ func retrieveInput():
 	
 func move():
 	var motion = u.motionBundle["motion"]
-	
 	# once move_and slide is called this changes the
 	# is_on_wall() and is_on_ceiling()
 	move_and_slide(motion, u.UP)
@@ -39,7 +38,6 @@ func move():
 		u.motionBundle,
 		u.inputBundle
 		)
-		
 	
 func animate():
 	u.animationBundle = u.animation.animate(
@@ -60,12 +58,4 @@ func isOnFloor(motion):
 	if motion.y < 0:
 		isOnFloor = false
 	return isOnFloor
-#
-#func justOnWallStatus(wasOnWall, direction):
-#	if wasOnWall != is_on_wall():
-#		if !is_on_wall():
-#			if direction == "right":
-#				return "justOnRightWall"
-#			elif direction == "left":
-#				return "justOnLeftWall"
-#	return "notJustOnWall"
+

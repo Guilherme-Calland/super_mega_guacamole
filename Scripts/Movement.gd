@@ -42,10 +42,12 @@ func move(speed, gravity, jumpSpeed, wallPushForce, isOnFloor, isOnWall, isOnCei
 	
 	if wallCollisionDirection == "right":
 		if motion.x > 0:
-			motion.x = 1
+			motion.x = 10
+			#the big value fixes the
+			#is_on_wall flickering
 	elif wallCollisionDirection == "left":
 		if motion.x < 0:
-			motion.x = -1
+			motion.x = -10
 	
 	if isOnFloor:
 		wallCollisionDirection = "none"
