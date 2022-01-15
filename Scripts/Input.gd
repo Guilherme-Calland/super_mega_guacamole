@@ -1,5 +1,4 @@
 func retrieveInput():
-	
 	var inputBundle = {
 		"right" : false,
 		"left" : false,

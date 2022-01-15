@@ -1,17 +1,21 @@
-func animate(is_on_floor, sprite, is_on_wall, hurtAnimation, motion):
-	if Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
+func animate(is_on_floor, sprite, is_on_wall, hurtAnimation, motion, inputBundle):
+	var left = inputBundle["left"]
+	var right = inputBundle["right"]
+	var jump = inputBundle["jump"]
+	
+	if right and not left:
 		sprite.flip_h = false
 		sprite.play("run")
-	elif Input.is_action_pressed("left") and not Input.is_action_pressed("right"):
+	elif left and not right:
 		sprite.flip_h = true
 		sprite.play("run")
 	else:
 		sprite.play("idle")
 	
 	if is_on_floor:
-		if Input.is_action_pressed("jump"):
+		if jump:
 			sprite.play("jump")
-		if motion.y > 0:
+		if falling(motion):
 			hurtAnimation = false
 	
 	if not is_on_floor:
@@ -28,3 +32,6 @@ func animate(is_on_floor, sprite, is_on_wall, hurtAnimation, motion):
 	}
 	
 	return animationBundle
+	
+func falling(motion):
+	return motion.y > 0

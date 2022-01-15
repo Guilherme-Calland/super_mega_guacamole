@@ -11,22 +11,23 @@ func _ready():
 	u = utilsScript.new()
 
 func _physics_process(delta):
+	retrieveInput()
 	move()
 	animate()
 	
+func retrieveInput():
+	u.inputBundle = u.input.retrieveInput()
+	
 func move():
-	var motion : Vector2 = u.motionBundle["motion"]
-	var hurt = u.motionBundle["hurt"]
-	
+	var motion = u.motionBundle["motion"]
 	move_and_slide(motion, u.UP)
-	
 	u.motionBundle = u.movement.move(
-		motion, 
+		u.motionBundle, 
 		speed, 
 		gravity, 
 		jump_speed, 
 		checkIfOnFloor(motion),
-		u.motionBundle["hurt"]
+		u.inputBundle
 		)
 		
 	
@@ -36,7 +37,8 @@ func animate():
 		$PlayerAnimatedSprite, 
 		is_on_wall(),
 		u.animationBundle["hurtAnimation"],
-		u.motionBundle["motion"]
+		u.motionBundle["motion"],
+		u.inputBundle
 		)
 
 func hurt():
