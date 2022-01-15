@@ -1,10 +1,9 @@
-func move(motionBundle, speed, gravity, jump_speed, is_on_floor, inputBundle):
-	
+func move(speed, gravity, jump_speed, is_on_floor, is_on_wall, motionBundle, inputBundle, hurt):
 	var motion = motionBundle["motion"]
-	var hurt = motionBundle["hurt"]
 	var left = inputBundle["left"]
 	var right = inputBundle["right"]
 	var jump = inputBundle["jump"]
+	var grab = inputBundle["grab"]
 	
 	if right and not left:
 		if is_on_floor:
@@ -17,13 +16,15 @@ func move(motionBundle, speed, gravity, jump_speed, is_on_floor, inputBundle):
 			motion.x = 0
 		
 	if not is_on_floor:
-		motion.y += gravity
+		if is_on_wall and grab:
+			motion.y = 0
+		else:
+			motion.y += gravity
 	elif is_on_floor:
 		motion.y = gravity
 	
-	if jump:
-		if is_on_floor:
-			motion.y = -jump_speed
+	if jump and is_on_floor:
+		motion.y = -jump_speed
 	
 	if hurt:
 		motion.y = -jump_speed

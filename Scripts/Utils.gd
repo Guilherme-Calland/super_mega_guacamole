@@ -6,9 +6,10 @@ var animation = animationScript.new()
 var movement = movementScript.new()
 var input = inputScript.new()
 
+var hurt = false
+
 var motionBundle = {
 	"motion" : Vector2(0,0),
-	"hurt" : false,
 }
 
 var animationBundle = {
@@ -18,5 +19,6 @@ var animationBundle = {
 var inputBundle = {
 	"right" : false,
 	"left" : false,
-	"jump" : false
+	"jump" : false,
+	"grab" : false
 }

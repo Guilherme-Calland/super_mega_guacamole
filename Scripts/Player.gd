@@ -22,19 +22,21 @@ func move():
 	var motion = u.motionBundle["motion"]
 	move_and_slide(motion, u.UP)
 	u.motionBundle = u.movement.move(
-		u.motionBundle, 
 		speed, 
 		gravity, 
 		jump_speed, 
 		checkIfOnFloor(motion),
-		u.inputBundle
+		is_on_wall(),
+		u.motionBundle,
+		u.inputBundle,
+		u.hurt
 		)
 		
 	
 func animate():
 	u.animationBundle = u.animation.animate(
+		$PlayerAnimatedSprite,
 		is_on_floor(), 
-		$PlayerAnimatedSprite, 
 		is_on_wall(),
 		u.animationBundle["hurtAnimation"],
 		u.motionBundle["motion"],
@@ -42,7 +44,7 @@ func animate():
 		)
 
 func hurt():
-	u.motionBundle["hurt"] = true
+	u.hurt = true
 	u.animationBundle["hurtAnimation"] = true
 	
 func checkIfOnFloor(motion):
