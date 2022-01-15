@@ -17,6 +17,16 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "grab",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "hurt",
@@ -26,16 +36,6 @@ animations = [ {
 "loop": true,
 "name": "run",
 "speed": 10.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "grab",
-"speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
@@ -47,10 +47,9 @@ animations = [ {
 extents = Vector2( 5.70285, 18.1469 )
 
 [node name="Player" type="KinematicBody2D"]
-collision_mask = 6
+collision_mask = 14
 script = ExtResource( 6 )
 gravity = 2
-wall_push_force = 300
 
 [node name="PlayerAnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
@@ -65,5 +64,5 @@ scale = Vector2( 1.5, 1 )
 shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 3.56984, -25.3287 )
+position = Vector2( 156.782, -75.4709 )
 current = true

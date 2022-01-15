@@ -1,50 +1,52 @@
-func move(speed, gravity, jump_speed, wall_push_force, is_on_floor, is_on_wall, motionBundle, inputBundle, hurt):
+func move(speed, gravity, jumpSpeed, wallPushForce, isOnFloor, isOnWall, justOnWallStatus, motionBundle, inputBundle):
 	var motion = motionBundle["motion"]
 	var direction = motionBundle["direction"]
+	var hurtMovement = motionBundle["hurtMovement"]
 	var left = inputBundle["left"]
 	var right = inputBundle["right"]
 	var jump = inputBundle["jump"]
 	var grab = inputBundle["grab"]
 	
 	if right and not left:
-		if is_on_floor:
+		if isOnFloor:
 			direction = "right"
 			motion.x = speed
 	elif left and not right:
-		if is_on_floor:
+		if isOnFloor:
 			direction = "left"
 			motion.x = -speed
 	else:
-		if is_on_floor:
+		if isOnFloor:
 			motion.x = 0
 		
-	if not is_on_floor:
+	if not isOnFloor:
 		motion.y += gravity
-	elif is_on_floor:
+	elif isOnFloor:
 		motion.y = gravity
 	
-	if jump and is_on_floor:
-		motion.y = -jump_speed
+	if jump and isOnFloor:
+		motion.y = -jumpSpeed
 	
-	if is_on_wall:
+	if isOnWall:
 		if grab:
 			motion.y = 0
 		if jump:
-			motion.y = -jump_speed
+			motion.y = -jumpSpeed
 			if direction == "right":
-				motion.x = -wall_push_force
+				motion.x = -wallPushForce
 				direction = "left"
 			else:
-				motion.x = wall_push_force
+				motion.x = wallPushForce
 				direction = "right"
-		
-	if hurt:
-		motion.y = -jump_speed
-		hurt = false
+	
+	if hurtMovement:
+		motion.y = -jumpSpeed
+		hurtMovement = false
 	
 	motionBundle = {
 		"motion" : motion,
-		"direction" : direction
+		"direction" : direction,
+		"hurtMovement" : hurtMovement
 	}
 	
 	return motionBundle

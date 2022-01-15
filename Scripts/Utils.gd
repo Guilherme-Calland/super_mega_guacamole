@@ -6,11 +6,10 @@ var animation = animationScript.new()
 var movement = movementScript.new()
 var input = inputScript.new()
 
-var hurt = false
-
 var motionBundle = {
 	"motion" : Vector2(0,0),
-	"direction" : "left"
+	"direction" : "left",
+	"hurtMovement" : false
 }
 
 var animationBundle = {

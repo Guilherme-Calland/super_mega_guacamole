@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Graphics/Environment/stone.png" type="Texture" id=1]
 [ext_resource path="res://Graphics/Environment/stone_small.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/Environment/stone_small_fake.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -28,3 +29,15 @@ texture = ExtResource( 2 )
 visible = false
 scale = Vector2( 2.5, 2.5 )
 shape = SubResource( 1 )
+
+[node name="SmallStoneFake" type="Sprite" parent="."]
+position = Vector2( 240, 240 )
+texture = ExtResource( 3 )
+
+[node name="Area2D" type="StaticBody2D" parent="SmallStoneFake"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SmallStoneFake/Area2D"]
+visible = false
+scale = Vector2( 2.5, 2.5 )
+shape = SubResource( 1 )
+disabled = true

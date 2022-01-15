@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 export var gravity = 10
 export var speed = 100
-export var jump_speed = 300
-export var wall_push_force = 150
+export var jumpSpeed = 300
+export var wallPushForce = 300
 
 var u
 
@@ -20,19 +20,21 @@ func retrieveInput():
 	u.inputBundle = u.input.retrieveInput()
 	
 func move():
+	var prevMotion = u.motionBundle["motion"]
+	var prevDirection = u.motionBundle["direction"]
+	var prevIsOnWall = is_on_wall()
+	move_and_slide(prevMotion, u.UP)
 	
-	var motion = u.motionBundle["motion"]
-	move_and_slide(motion, u.UP)
 	u.motionBundle = u.movement.move(
 		speed, 
 		gravity, 
-		jump_speed, 
-		wall_push_force,
-		checkIfOnFloor(motion),
+		jumpSpeed, 
+		wallPushForce,
+		isOnFloor(u.motionBundle["motion"]),
 		is_on_wall(),
+		justOnWallStatus(prevIsOnWall, prevDirection),
 		u.motionBundle,
-		u.inputBundle,
-		u.hurt
+		u.inputBundle
 		)
 		
 	
@@ -47,11 +49,20 @@ func animate():
 		)
 
 func hurt():
-	u.hurt = true
+	u.motionBundle["hurtMovement"] = true
 	u.animationBundle["hurtAnimation"] = true
 	
-func checkIfOnFloor(motion):
-	var is_on_floor = is_on_floor()
+func isOnFloor(motion):
+	var isOnFloor = is_on_floor()
 	if motion.y < 0:
-		is_on_floor = false
-	return is_on_floor
+		isOnFloor = false
+	return isOnFloor
+
+func justOnWallStatus(wasOnWall, direction):
+	if wasOnWall != is_on_wall():
+		if !is_on_wall():
+			if direction == "right":
+				return "justOnRightWall"
+			elif direction == "left":
+				return "justOnLeftWall"
+	return "notJustOnWall"
