@@ -1,4 +1,4 @@
-func move(speed, gravity, jumpSpeed, wallPushForce, isOnFloor, isOnWall, isOnCeiling, motionBundle, inputBundle):
+func move(speed, gravity, jumpSpeed, wallPushForce, isOnFloor, isOnWall, isOnCeiling, wallCollisionDirection, motionBundle, inputBundle):
 	var motion = motionBundle["motion"]
 	var direction = motionBundle["direction"]
 	var hurtMovement = motionBundle["hurtMovement"]
@@ -19,19 +19,16 @@ func move(speed, gravity, jumpSpeed, wallPushForce, isOnFloor, isOnWall, isOnCei
 		if isOnFloor:
 			motion.x = 0
 		
-	if not isOnFloor:
-		if not isOnCeiling:
-			motion.y += gravity
-		elif isOnCeiling:
-			motion.y = gravity
-	
-	elif isOnFloor:
+	if not isOnFloor and not isOnCeiling:
+		motion.y += gravity
+	else:
 		motion.y = gravity
 		
 	if jump and isOnFloor:
 		motion.y = -jumpSpeed
 	
 	if isOnWall:
+		wallCollisionDirection = direction
 		if grab:
 			motion.y = 0
 		if jump:
@@ -43,12 +40,15 @@ func move(speed, gravity, jumpSpeed, wallPushForce, isOnFloor, isOnWall, isOnCei
 				motion.x = wallPushForce
 				direction = "right"
 	
-#	if justOnWallStatus == "justOnRightWall":
-#		if motion.x > 0:
-#			motion.x = -1;
-#	elif justOnWallStatus == "justOnLeftWall":
-#		if motion.x < 0:
-#			motion.x = 1
+	if wallCollisionDirection == "right":
+		if motion.x > 0:
+			motion.x = 1
+	elif wallCollisionDirection == "left":
+		if motion.x < 0:
+			motion.x = -1
+	
+	if isOnFloor:
+		wallCollisionDirection = "none"
 	
 	if hurtMovement:
 		motion.y = -jumpSpeed
@@ -57,7 +57,8 @@ func move(speed, gravity, jumpSpeed, wallPushForce, isOnFloor, isOnWall, isOnCei
 	motionBundle = {
 		"motion" : motion,
 		"direction" : direction,
-		"hurtMovement" : hurtMovement
+		"hurtMovement" : hurtMovement,
+		"wallCollisionDirection" : wallCollisionDirection
 	}
 	
 	return motionBundle

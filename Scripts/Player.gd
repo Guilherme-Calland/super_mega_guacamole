@@ -21,13 +21,12 @@ func retrieveInput():
 	
 func move():
 	var motion = u.motionBundle["motion"]
-	var direction = u.motionBundle["direction"]
 	
 	# once move_and slide is called this changes the
 	# is_on_wall() and is_on_ceiling()
-	var prevIsOnWall = is_on_wall()
-	
 	move_and_slide(motion, u.UP)
+	var direction = u.motionBundle["direction"]
+	var wallCollisionDirection = u.motionBundle["wallCollisionDirection"]
 	u.motionBundle = u.movement.move(
 		speed, 
 		gravity, 
@@ -36,6 +35,7 @@ func move():
 		isOnFloor(motion),
 		is_on_wall(),
 		is_on_ceiling(),
+		wallCollisionDirection,
 		u.motionBundle,
 		u.inputBundle
 		)
