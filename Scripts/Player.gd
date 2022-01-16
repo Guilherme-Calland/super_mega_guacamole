@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export var gravity = 10
-export var speed = 100
+export var speed = 200
 export var jumpSpeed = 300
 export var wallPushForce = 300
 
@@ -52,10 +52,25 @@ func animate():
 func hurt():
 	u.motionBundle["hurtMovement"] = true
 	u.animationBundle["hurtAnimation"] = true
-	
+
+func boost(boostForce):
+	var direction = u.motionBundle["direction"]
+	var motion = Vector2(0,0)
+	if direction == "right":
+		motion.x = speed
+	elif direction == "left":
+		motion.x = -speed
+	motion.y = -boostForce
+	u.motionBundle["motion"] = motion
+
 func isOnFloor(motion):
 	var isOnFloor = is_on_floor()
 	if motion.y < 0:
 		isOnFloor = false
 	return isOnFloor
 
+func isGrabbing():
+	print(is_on_wall())
+	print(Input.is_action_pressed("grab"))
+	return is_on_wall() and u.inputBundle["grab"]
+	
