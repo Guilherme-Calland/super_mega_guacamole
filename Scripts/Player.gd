@@ -50,25 +50,12 @@ func animate():
 		u.inputBundle
 		)
 
-func hurt(throwDirection):
-	var direction
-	if throwDirection.x > 0:
-		direction = "right"
-	else:
-		direction = "left"
-	
-	u.motionBundle["motion"] = throwDirection
-	u.motionBundle["direction"] = direction
+func hurt(throwForce):
+	u.motionBundle["motion"] = throwForce
 	u.animationBundle["hurtAnimation"] = true
 
 func boost(boostForce):
-	var direction
 	u.motionBundle["motion"] = boostForce
-	if boostForce.x > 0:
-		direction = "right"
-	else:
-		direction = "left"
-	u.motionBundle["direction"] = direction
 
 func isOnFloor(motion):
 	var isOnFloor = is_on_floor()

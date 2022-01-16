@@ -11,11 +11,9 @@ func move(speed, gravity, jumpSpeed, wallPushForce, isOnFloor, isOnWall, isOnCei
 			motion.x = 0
 	elif right:
 		if isOnFloor:
-			direction = "right"
 			motion.x = speed
 	elif left:
 		if isOnFloor:
-			direction = "left"
 			motion.x = -speed
 		
 	if not isOnFloor and not isOnCeiling:
@@ -34,24 +32,27 @@ func move(speed, gravity, jumpSpeed, wallPushForce, isOnFloor, isOnWall, isOnCei
 			motion.y = -jumpSpeed
 			if direction == "right":
 				motion.x = -wallPushForce
-				direction = "left"
 			else:
 				motion.x = wallPushForce
-				direction = "right"
 	
-	if wallCollisionDirection == "right":
-		if motion.x > 0:
-			motion.x = 20
-			#the big value fixes the
-			#is_on_wall flickering animation
-			# and also the world stops trembling
-	elif wallCollisionDirection == "left":
-		if motion.x < 0:
-			motion.x = -20
+		if wallCollisionDirection == "right":
+			if motion.x > 0:
+				motion.x = 20
+				#the big value fixes the
+				#is_on_wall flickering animation
+				# and also the world stops trembling
+		elif wallCollisionDirection == "left":
+			if motion.x < 0:
+				motion.x = -20
 	
 	if isOnFloor:
 		wallCollisionDirection = "none"
-		
+	
+	if motion.x >= 0:
+		direction ="right"
+	elif motion.x < 0:
+		direction = "left"
+	
 	motionBundle = {
 		"motion" : motion,
 		"direction" : direction,

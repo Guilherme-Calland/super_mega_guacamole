@@ -14,7 +14,7 @@
 [node name="Level 1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 7319.53, -20.4385 )
+position = Vector2( 4258.33, -250.16 )
 z_index = 100
 gravity = 10
 
@@ -150,6 +150,11 @@ position = Vector2( 6377.62, -74.5261 )
 rotation = 1.5708
 z_index = 11
 boostForce = Vector2( 450, -300 )
+
+[node name="JumpPad4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 7838.29, 8.34428 )
+z_index = 11
+boostForce = Vector2( 450, -200 )
 
 [node name="LargeSpikeGroup1" type="Node2D" parent="."]
 
