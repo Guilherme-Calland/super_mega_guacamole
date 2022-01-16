@@ -14,7 +14,7 @@
 [node name="Level 1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 6996.18, -62.858 )
+position = Vector2( 916.781, -163.393 )
 z_index = 100
 gravity = 10
 
@@ -198,5 +198,5 @@ position = Vector2( 2401.17, 9.65508 )
 throwDirection = Vector2( 200, -150 )
 
 [node name="MovingSpike" parent="." instance=ExtResource( 10 )]
-position = Vector2( 7523.07, 4.5226 )
-throwDirection = Vector2( -40, -500 )
+position = Vector2( 7522.07, 4.31673 )
+throwDirection = Vector2( -50, -400 )
