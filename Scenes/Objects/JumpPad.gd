@@ -1,6 +1,6 @@
 extends Area2D
 
-export var boostForce = 650
+export var boostForce = Vector2(0,0)
 
 func _on_JumpPad_body_entered(body):
 	$JumpPadSprite.play("boost")

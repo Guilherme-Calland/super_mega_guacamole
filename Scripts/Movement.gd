@@ -53,15 +53,15 @@ func move(speed, gravity, jumpSpeed, wallPushForce, isOnFloor, isOnWall, isOnCei
 	if isOnFloor:
 		wallCollisionDirection = "none"
 	
-	if hurtMovement:
-		motion.y = -jumpSpeed/2
-		if direction == "right":
-			motion.x = -speed
-			direction = "left"
-		elif direction == "left":
-			motion.x = speed
-			direction = "right"
-		hurtMovement = false
+#	if hurtMovement:
+#		motion.y = -jumpSpeed/2
+#		if direction == "right":
+#			motion.x = -speed
+#			direction ="left"
+#		elif direction == "left":
+#			motion.x = speed
+#			direction = "right"
+#		hurtMovement = false
 		
 	motionBundle = {
 		"motion" : motion,

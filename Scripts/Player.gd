@@ -24,7 +24,6 @@ func move():
 	# once move_and slide is called this changes the
 	# is_on_wall() and is_on_ceiling()
 	move_and_slide(motion, u.UP)
-	var direction = u.motionBundle["direction"]
 	var wallCollisionDirection = u.motionBundle["wallCollisionDirection"]
 	u.motionBundle = u.movement.move(
 		speed, 
@@ -51,19 +50,25 @@ func animate():
 		u.inputBundle
 		)
 
-func hurt():
-	u.motionBundle["hurtMovement"] = true
+func hurt(throwDirection):
+	var direction
+	if throwDirection.x > 0:
+		direction = "right"
+	else:
+		direction = "left"
+	
+	u.motionBundle["motion"] = throwDirection
+	u.motionBundle["direction"] = direction
 	u.animationBundle["hurtAnimation"] = true
 
 func boost(boostForce):
-	var direction = u.motionBundle["direction"]
-	var motion = Vector2(0,0)
-	if direction == "right":
-		motion.x = speed
-	elif direction == "left":
-		motion.x = -speed
-	motion.y = -boostForce
-	u.motionBundle["motion"] = motion
+	var direction
+	u.motionBundle["motion"] = boostForce
+	if boostForce.x > 0:
+		direction = "right"
+	else:
+		direction = "left"
+	u.motionBundle["direction"] = direction
 
 func isOnFloor(motion):
 	var isOnFloor = is_on_floor()
