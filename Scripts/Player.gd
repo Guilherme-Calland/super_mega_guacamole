@@ -63,8 +63,3 @@ func isOnFloor(motion):
 		isOnFloor = false
 	return isOnFloor
 
-func isGrabbing():
-	print(is_on_wall())
-	print(Input.is_action_pressed("grab"))
-	return is_on_wall() and u.inputBundle["grab"]
-	

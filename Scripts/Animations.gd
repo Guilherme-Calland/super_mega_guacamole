@@ -14,7 +14,6 @@ func animate(sprite, isOnFloor, isOnWall, direction, hurtAnimation, inputBundle)
 			sprite.play("idle")
 		elif direction == "right" || "right":
 			sprite.play("run")
-		
 			
 		if jump:
 			sprite.play("jump")
@@ -26,11 +25,6 @@ func animate(sprite, isOnFloor, isOnWall, direction, hurtAnimation, inputBundle)
 		sprite.play("jump")
 		
 	if isOnWall:
-		if jump:
-			if direction == "left":
-				direction = right
-			elif direction == "right":
-				direction = left
 		sprite.play("pregrab")
 		if grab:
 			sprite.play("grab")

@@ -32,7 +32,7 @@ func move(speed, gravity, jumpSpeed, wallPushForce, isOnFloor, isOnWall, isOnCei
 			motion.y = -jumpSpeed
 			if direction == "right":
 				motion.x = -wallPushForce
-			else:
+			elif direction == "left":
 				motion.x = wallPushForce
 	
 		if wallCollisionDirection == "right":
@@ -48,8 +48,8 @@ func move(speed, gravity, jumpSpeed, wallPushForce, isOnFloor, isOnWall, isOnCei
 	if isOnFloor:
 		wallCollisionDirection = "none"
 	
-	if motion.x >= 0:
-		direction ="right"
+	if motion.x > 0:
+		direction = "right"
 	elif motion.x < 0:
 		direction = "left"
 	
