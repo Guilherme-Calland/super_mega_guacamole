@@ -199,4 +199,5 @@ throwDirection = Vector2( 200, -150 )
 
 [node name="MovingSpike" parent="." instance=ExtResource( 10 )]
 position = Vector2( 7522.07, 4.31673 )
+dislocation = 75
 throwDirection = Vector2( -50, -400 )
