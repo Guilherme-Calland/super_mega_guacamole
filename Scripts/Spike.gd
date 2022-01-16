@@ -1,6 +1,6 @@
 extends Area2D
 
-export var direction = Vector2(200, -150)
+export var direction = Vector2(-100, -500)
 
 func _on_Spike_body_entered(body):
 	if collides_with_player(body):

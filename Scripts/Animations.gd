@@ -4,30 +4,33 @@ func animate(sprite, isOnFloor, isOnWall, direction, hurtAnimation, inputBundle)
 	var jump = inputBundle["jump"]
 	var grab = inputBundle["grab"]
 	
+	if direction == "right":
+		sprite.flip_h = false
+	elif direction == "left":
+		sprite.flip_h = true
+	
 	if isOnFloor:
 		if (right and left) or not(right or left):
 			sprite.play("idle")
-		elif direction == "right":
-			sprite.flip_h = false
+		elif direction == "right" || "right":
 			sprite.play("run")
-		elif direction == "left":
-			sprite.flip_h = true
-			sprite.play("run")
+		
 			
 		if jump:
 			sprite.play("jump")
 	
 	if (isOnFloor or isOnWall) and hurtAnimation:
 		hurtAnimation = false
-		if isOnWall:
-			sprite.flip_h = not sprite.flip_h
 	
 	if not isOnFloor:
 		sprite.play("jump")
 		
 	if isOnWall:
 		if jump:
-			sprite.flip_h = not sprite.flip_h
+			if direction == "left":
+				direction = right
+			elif direction == "right":
+				direction = left
 		sprite.play("pregrab")
 		if grab:
 			sprite.play("grab")

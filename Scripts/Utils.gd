@@ -9,7 +9,6 @@ var input = inputScript.new()
 var motionBundle = {
 	"motion" : Vector2(0,0),
 	"direction" : "left",
-	"hurtMovement" : false,
 	"wallCollisionDirection" : "none"
 }
 

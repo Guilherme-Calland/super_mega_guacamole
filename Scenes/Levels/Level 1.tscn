@@ -14,7 +14,7 @@
 [node name="Level 1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 6760.9, -60.6322 )
+position = Vector2( 6186.79, -71.8345 )
 z_index = 100
 gravity = 10
 
@@ -96,6 +96,7 @@ position = Vector2( -998.665, 54.8717 )
 
 [node name="Spike" parent="SpikeGroup1" instance=ExtResource( 7 )]
 position = Vector2( 4424.31, -48.3081 )
+direction = Vector2( -200, -150 )
 
 [node name="Spike2" parent="SpikeGroup1" instance=ExtResource( 7 )]
 position = Vector2( 4474.01, -47.8631 )
@@ -105,27 +106,33 @@ position = Vector2( 2340.95, 54.8325 )
 
 [node name="Spike" parent="SpikeGroup2" instance=ExtResource( 7 )]
 position = Vector2( 2353.17, -47.3449 )
+direction = Vector2( -200, -150 )
 
 [node name="Spike2" parent="SpikeGroup2" instance=ExtResource( 7 )]
 position = Vector2( 2401.17, -47.3449 )
+direction = Vector2( -200, -150 )
 
 [node name="SpikeGroup3" type="Node2D" parent="."]
 position = Vector2( 2546.56, -6.18591 )
 
 [node name="Spike" parent="SpikeGroup3" instance=ExtResource( 7 )]
 position = Vector2( 2353.17, 13.6551 )
+direction = Vector2( -200, -150 )
 
 [node name="Spike2" parent="SpikeGroup3" instance=ExtResource( 7 )]
-position = Vector2( 2401.17, 12.6551 )
+position = Vector2( 2401.17, 13.6551 )
+direction = Vector2( 200, -150 )
 
 [node name="SpikeGroup4" type="Node2D" parent="."]
 position = Vector2( 2751.31, -1.95146 )
 
 [node name="Spike" parent="SpikeGroup4" instance=ExtResource( 7 )]
 position = Vector2( 2353.17, 8.65508 )
+direction = Vector2( 200, -150 )
 
 [node name="Spike2" parent="SpikeGroup4" instance=ExtResource( 7 )]
-position = Vector2( 2401.17, 7.65508 )
+position = Vector2( 2401.17, 8.65508 )
+direction = Vector2( 200, -150 )
 
 [node name="JumpPad" parent="." instance=ExtResource( 9 )]
 position = Vector2( 5527.73, 10.4774 )
@@ -149,40 +156,45 @@ boostForce = Vector2( 450, -300 )
 position = Vector2( 4140.32, -1.04448 )
 
 [node name="Spike" parent="LargeSpikeGroup1/SpikeGroup5" instance=ExtResource( 7 )]
-position = Vector2( 2353.17, 8.65508 )
+position = Vector2( 2353.17, 8.53505 )
+direction = Vector2( -200, -150 )
 
 [node name="Spike2" parent="LargeSpikeGroup1/SpikeGroup5" instance=ExtResource( 7 )]
 position = Vector2( 2401.17, 8.65508 )
+direction = Vector2( -200, -150 )
 
 [node name="SpikeGroup6" type="Node2D" parent="LargeSpikeGroup1"]
 position = Vector2( 4247.73, -0.952362 )
 
 [node name="Spike" parent="LargeSpikeGroup1/SpikeGroup6" instance=ExtResource( 7 )]
 position = Vector2( 2353.17, 8.65508 )
+direction = Vector2( -200, -150 )
 
 [node name="Spike2" parent="LargeSpikeGroup1/SpikeGroup6" instance=ExtResource( 7 )]
 position = Vector2( 2401.17, 8.65508 )
+direction = Vector2( -200, -150 )
 
 [node name="SpikeGroup7" type="Node2D" parent="LargeSpikeGroup1"]
 position = Vector2( 4353.74, -1.89716 )
 
 [node name="Spike" parent="LargeSpikeGroup1/SpikeGroup7" instance=ExtResource( 7 )]
 position = Vector2( 2353.17, 9.65508 )
+direction = Vector2( 200, -150 )
 
 [node name="Spike2" parent="LargeSpikeGroup1/SpikeGroup7" instance=ExtResource( 7 )]
 position = Vector2( 2401.17, 9.65508 )
+direction = Vector2( 200, -150 )
 
 [node name="SpikeGroup8" type="Node2D" parent="LargeSpikeGroup1"]
 position = Vector2( 4458.81, -1.98927 )
 
 [node name="Spike" parent="LargeSpikeGroup1/SpikeGroup8" instance=ExtResource( 7 )]
 position = Vector2( 2353.17, 9.65508 )
+direction = Vector2( 200, -150 )
 
 [node name="Spike2" parent="LargeSpikeGroup1/SpikeGroup8" instance=ExtResource( 7 )]
 position = Vector2( 2401.17, 9.65508 )
-
-[node name="Spike3" parent="LargeSpikeGroup1/SpikeGroup8" instance=ExtResource( 7 )]
-position = Vector2( 3374.01, 8.73369 )
+direction = Vector2( 200, -150 )
 
 [node name="MovingSpike" parent="." instance=ExtResource( 10 )]
 position = Vector2( 7521.07, 4.5226 )

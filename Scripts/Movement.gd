@@ -1,7 +1,6 @@
 func move(speed, gravity, jumpSpeed, wallPushForce, isOnFloor, isOnWall, isOnCeiling, wallCollisionDirection, motionBundle, inputBundle):
 	var motion = motionBundle["motion"]
 	var direction = motionBundle["direction"]
-	var hurtMovement = motionBundle["hurtMovement"]
 	var left = inputBundle["left"]
 	var right = inputBundle["right"]
 	var jump = inputBundle["jump"]
@@ -52,21 +51,10 @@ func move(speed, gravity, jumpSpeed, wallPushForce, isOnFloor, isOnWall, isOnCei
 	
 	if isOnFloor:
 		wallCollisionDirection = "none"
-	
-#	if hurtMovement:
-#		motion.y = -jumpSpeed/2
-#		if direction == "right":
-#			motion.x = -speed
-#			direction ="left"
-#		elif direction == "left":
-#			motion.x = speed
-#			direction = "right"
-#		hurtMovement = false
 		
 	motionBundle = {
 		"motion" : motion,
 		"direction" : direction,
-		"hurtMovement" : hurtMovement,
 		"wallCollisionDirection" : wallCollisionDirection
 	}
 	
