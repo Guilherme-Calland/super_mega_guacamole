@@ -17,25 +17,25 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "grab",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "hurt",
+"name": "jump",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "run",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
@@ -65,4 +65,5 @@ shape = SubResource( 2 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 207.603, -19.1218 )
 current = true
+zoom = Vector2( 0.5, 0.5 )
 drag_margin_h_enabled = true

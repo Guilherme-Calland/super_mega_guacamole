@@ -14,7 +14,7 @@
 [node name="Level 1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 916.781, -163.393 )
+position = Vector2( 7319.53, -20.4385 )
 z_index = 100
 gravity = 10
 
