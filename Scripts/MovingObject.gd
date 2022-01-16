@@ -3,6 +3,7 @@ extends Node2D
 export var direction = "still"
 export var dislocationTime = 1
 export var waitTime = 2
+export var throwDirection = Vector2(-10, -50)
 
 func _process(delta):
 	if direction == "forward":
@@ -21,3 +22,6 @@ func _on_Timer_timeout():
 		$Timer.wait_time = waitTime
 		direction = "still"
 	$Timer.start()
+
+func _on_Spike_body_entered(body):
+	body.hurt(throwDirection)
