@@ -7,10 +7,9 @@
 [node name="TestingArena" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -212.56, -159.693 )
+position = Vector2( 448.826, -67.4997 )
 z_index = 200
 gravity = 10
-speed = 200
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )

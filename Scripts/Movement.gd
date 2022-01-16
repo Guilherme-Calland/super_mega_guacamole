@@ -7,17 +7,17 @@ func move(speed, gravity, jumpSpeed, wallPushForce, isOnFloor, isOnWall, isOnCei
 	var jump = inputBundle["jump"]
 	var grab = inputBundle["grab"]
 	
-	if right and not left:
+	if not(right or left) or (right and left):
+		if isOnFloor:
+			motion.x = 0
+	elif right:
 		if isOnFloor:
 			direction = "right"
 			motion.x = speed
-	elif left and not right:
+	elif left:
 		if isOnFloor:
 			direction = "left"
 			motion.x = -speed
-	else:
-		if isOnFloor:
-			motion.x = 0
 		
 	if not isOnFloor and not isOnCeiling:
 		motion.y += gravity
@@ -54,11 +54,13 @@ func move(speed, gravity, jumpSpeed, wallPushForce, isOnFloor, isOnWall, isOnCei
 		wallCollisionDirection = "none"
 	
 	if hurtMovement:
-		motion.y = -jumpSpeed
+		motion.y = -jumpSpeed/2
 		if direction == "right":
-			motion.x = speed
-		elif direction == "left":
 			motion.x = -speed
+			direction = "left"
+		elif direction == "left":
+			motion.x = speed
+			direction = "right"
 		hurtMovement = false
 		
 	motionBundle = {

@@ -40,12 +40,14 @@ func move():
 		)
 	
 func animate():
+	var motion = u.motionBundle["motion"]
+	var direction = u.motionBundle["direction"]
 	u.animationBundle = u.animation.animate(
 		$PlayerAnimatedSprite,
-		is_on_floor(), 
+		isOnFloor(motion), 
 		is_on_wall(),
+		direction,
 		u.animationBundle["hurtAnimation"],
-		u.motionBundle["motion"],
 		u.inputBundle
 		)
 
