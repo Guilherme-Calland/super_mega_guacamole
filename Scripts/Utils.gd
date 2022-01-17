@@ -20,5 +20,6 @@ var inputBundle = {
 	"right" : false,
 	"left" : false,
 	"jump" : false,
-	"grab" : false
+	"grab" : false,
+	"restart" : false
 }

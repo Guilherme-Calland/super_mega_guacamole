@@ -3,7 +3,9 @@ func retrieveInput():
 		"right" : false,
 		"left" : false,
 		"jump" : false,
-		"grab" : false
+		"grab" : false,
+		"restart" : false
+		
 	}
 	
 	if Input.is_action_pressed("right"):
@@ -12,10 +14,12 @@ func retrieveInput():
 	if Input.is_action_pressed("left"):
 		inputBundle["left"] = true
 		
-	if Input.is_action_pressed("jump"):
+	if Input.is_action_just_pressed("jump"):
 		inputBundle["jump"] = true
 		
 	if Input.is_action_pressed("grab"):
 		inputBundle["grab"] = true
 	
+	if Input.is_action_just_pressed("restart"):
+		inputBundle["restart"] = true
 	return inputBundle
