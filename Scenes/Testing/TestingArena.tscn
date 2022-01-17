@@ -9,7 +9,7 @@
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 448.826, -67.4997 )
 z_index = 200
-gravity = 10
+script = null
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -19,3 +19,4 @@ tile_data = PoolIntArray( -393193, 1, 0, -393192, 1, 0, -327657, 1, 0, -327656, 
 
 [node name="RockBuddy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 287.365, -40.4117 )
+script = null

@@ -5,7 +5,7 @@
 [ext_resource path="res://Graphics/Player/gui_jumping.png" type="Texture" id=3]
 [ext_resource path="res://Graphics/Player/gui_running_2.png" type="Texture" id=4]
 [ext_resource path="res://Graphics/Player/gui_idle_2.png" type="Texture" id=5]
-[ext_resource path="res://Scripts/Player.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=6]
 [ext_resource path="res://Graphics/Player/gui_machucado.png" type="Texture" id=7]
 [ext_resource path="res://Graphics/Player/gui_grabbing.png" type="Texture" id=8]
 [ext_resource path="res://Graphics/Player/gui_pre_grab.png" type="Texture" id=9]
@@ -49,7 +49,6 @@ extents = Vector2( 5.7836, 12.7365 )
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 14
 script = ExtResource( 6 )
-gravity = 2
 
 [node name="PlayerAnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )

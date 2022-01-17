@@ -5,6 +5,7 @@ func retrieveInput():
 		"jump" : false,
 		"grab" : false,
 		"restart" : false,
+		"checkPoint1" : false,
 		"checkPoint2" : false
 	}
 	
@@ -23,6 +24,10 @@ func retrieveInput():
 	if Input.is_action_just_pressed("restart"):
 		inputBundle["restart"] = true
 		
+	if Input.is_action_pressed("checkPoint1"):
+		inputBundle["checkPoint1"] = true
+		
 	if Input.is_action_pressed("checkPoint2"):
 		inputBundle["checkPoint2"] = true
+		
 	return inputBundle

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Graphics/Objects/movingObject.png" type="Texture" id=1]
 [ext_resource path="res://Graphics/Hazards/spikesBottom.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/MovingObject.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Objects/MovingObject.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 21.1972, 6.19374 )
