@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stone_small_fake.png-9cc0df38a76a3f33e2d95898c9ba1478.stex"
+path="res://.import/stone_small_fake.png-f6376b34bb4927d3ce5080e9856fd287.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Environment/stone_small_fake.png"
-dest_files=[ "res://.import/stone_small_fake.png-9cc0df38a76a3f33e2d95898c9ba1478.stex" ]
+source_file="res://Graphics/Environment/stone/stone_small_fake.png"
+dest_files=[ "res://.import/stone_small_fake.png-f6376b34bb4927d3ce5080e9856fd287.stex" ]
 
 [params]
 

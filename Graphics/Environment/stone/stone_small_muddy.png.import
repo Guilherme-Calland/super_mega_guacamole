@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grass_6.png-32b994a1db690e9302b7ef6f4def9d0e.stex"
+path="res://.import/stone_small_muddy.png-a6e3c4ee5b3182dd76bbd282bdd182c7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Environment/grass_6.png"
-dest_files=[ "res://.import/grass_6.png-32b994a1db690e9302b7ef6f4def9d0e.stex" ]
+source_file="res://Graphics/Environment/stone/stone_small_muddy.png"
+dest_files=[ "res://.import/stone_small_muddy.png-a6e3c4ee5b3182dd76bbd282bdd182c7.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
