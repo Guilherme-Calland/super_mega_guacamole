@@ -20,10 +20,10 @@ func retrieveInput():
 	u.inputBundle = u.input.retrieveInput()
 	if u.inputBundle["restart"]:
 		position = Vector2(10, -20)
-	if u.inputBundle["checkpoint1"]:
+	if u.inputBundle["checkPoint1"]:
 		position = Vector2(3000, -100)
 	if u.inputBundle["checkPoint2"]:
-		position = Vector2(6000, 180)
+		position = Vector2(12000, 180)
 	
 func move():
 	var motion = u.motionBundle["motion"]
