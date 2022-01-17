@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://TileSet/GrassTileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Graphics/Background/background4.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Graphics/Background/background1.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Hazards/Spike.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/Objects/JumpPad.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Hazards/MovingSpike.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Graphics/Background/background5.png" type="Texture" id=11]
@@ -16,8 +17,9 @@
 [node name="Level 1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 131.3, -193.065 )
+position = Vector2( 2968.2, -106.359 )
 z_index = 100
+script = ExtResource( 8 )
 gravity = 10
 
 [node name="Tiles" type="Node2D" parent="."]
@@ -27,7 +29,7 @@ position = Vector2( 131.3, -193.065 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 50, 50 )
 format = 1
-tile_data = PoolIntArray( 327677, 0, 0, 327678, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 2, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 2, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 262164, 0, 0, 262165, 0, 0, 262166, 0, 0, 262167, 0, 0, 262168, 0, 0, 262169, 0, 0, 262170, 0, 0, 262171, 0, 0, 262172, 0, 0, 262173, 0, 0, 262174, 0, 0, 262175, 0, 0, 262176, 0, 0, 262177, 0, 0, 262178, 0, 0, 262179, 0, 0, 262180, 0, 0, 262181, 0, 0, 262182, 0, 0, 262183, 0, 0, 262184, 0, 0, 262185, 0, 0, 262186, 0, 0, 262187, 0, 0, 262188, 0, 0, 262189, 0, 0, 262190, 0, 0, 262191, 0, 0, 262192, 0, 0, 262193, 0, 0, 262194, 0, 0, 262195, 0, 0, 262196, 0, 0, 262197, 0, 0, 262198, 0, 0, 262199, 0, 0, 262200, 0, 0, 262201, 0, 0, 262202, 0, 0, 262203, 0, 0, 262204, 0, 0 )
+tile_data = PoolIntArray( 327677, 0, 0, 327678, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 2, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 2, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 262164, 0, 0, 262165, 0, 0, 262166, 0, 0, 262167, 0, 0, 262168, 0, 0, 262169, 0, 0, 262170, 0, 0, 262171, 0, 0, 262172, 0, 0, 262173, 0, 0, 262174, 0, 0, 262175, 0, 0, 262176, 0, 0, 262177, 0, 0, 262178, 0, 0, 262179, 0, 0, 262180, 0, 0, 262181, 0, 0, 262182, 0, 0, 262183, 0, 0, 262184, 0, 0, 262185, 0, 0, 262186, 0, 0, 262187, 0, 0, 262188, 0, 0, 262189, 0, 0, 262190, 0, 0, 262191, 0, 0, 262192, 0, 0, 262193, 0, 0, 262194, 0, 0, 262195, 0, 0, 262196, 0, 0, 262197, 0, 0, 262198, 0, 0, 262199, 0, 0, 262200, 0, 0, 262201, 0, 0, 262202, 0, 0, 262203, 0, 0, 262204, 0, 0, 262205, 0, 0, 262206, 0, 0, 262207, 0, 0, 262208, 0, 0, 262209, 0, 0, 262210, 0, 0, 262211, 0, 0, 262212, 0, 0, 262213, 0, 0, 262214, 0, 0, 262215, 0, 0, 262216, 0, 0, 262217, 0, 0, 262218, 0, 0, 262219, 0, 0, 262220, 0, 0, 262221, 0, 0, 262222, 0, 0, 262223, 0, 0, 262224, 0, 0, 262225, 0, 0, 262226, 0, 0, 262227, 0, 0, 262228, 0, 0, 262229, 0, 0, 262230, 0, 0, 262231, 0, 0, 262232, 0, 0, 262233, 0, 0, 262234, 0, 0, 262235, 0, 0, 262236, 0, 0, 262237, 0, 0, 262238, 2, 0, 262239, 0, 0, 262240, 0, 0, 262241, 0, 0, 262242, 0, 0, 262243, 0, 0, 262244, 0, 0, 262245, 0, 0, 262246, 0, 0, 262247, 0, 0, 262248, 0, 0, 262249, 2, 0, 262250, 0, 0, 262251, 2, 0, 262252, 0, 0, 262253, 0, 0, 262254, 0, 0, 262255, 0, 0, 262256, 0, 0, 262257, 0, 0, 262258, 0, 0, 262259, 0, 0, 262260, 0, 0, 262261, 1, 0, 262262, 0, 0, 262263, 0, 0, 262264, 1, 0, 262265, 1, 0, 262266, 0, 0, 262267, 0, 0, 262268, 0, 0, 262269, 0, 0, 262270, 0, 0, 262271, 0, 0, 262272, 0, 0, 262273, 0, 0, 262274, 0, 0, 262275, 0, 0, 262276, 0, 0, 262277, 0, 0, 262278, 0, 0, 262279, 0, 0, 262280, 0, 0, 262281, 0, 0, 262282, 0, 0, 262283, 0, 0, 262284, 0, 0, 262285, 0, 0, 262286, 0, 0, 262287, 0, 0, 262288, 0, 0, 262289, 0, 0, 262290, 0, 0, 262291, 0, 0, 262292, 0, 0, 262293, 0, 0, 262294, 0, 0, 262295, 0, 0, 262296, 0, 0, 262297, 0, 0, 262298, 0, 0, 262299, 1, 0, 262300, 0, 0 )
 
 [node name="Background" type="Node2D" parent="."]
 
@@ -142,45 +144,29 @@ __meta__ = {
 position = Vector2( -998.665, 54.8717 )
 
 [node name="Spike" parent="Objects/SpikeGroup1" instance=ExtResource( 7 )]
-position = Vector2( 4256.59, -47.3081 )
+position = Vector2( 4256.59, -40.135 )
 throwDirection = Vector2( -200, -150 )
 
 [node name="Spike2" parent="Objects/SpikeGroup1" instance=ExtResource( 7 )]
-position = Vector2( 4306.29, -47.8631 )
-throwDirection = Vector2( 200, -150 )
+position = Vector2( 4304.59, -40.135 )
+throwDirection = Vector2( -200, -150 )
 
 [node name="SpikeGroup2" type="Node2D" parent="Objects"]
 position = Vector2( 2340.95, 54.8325 )
 
 [node name="Spike" parent="Objects/SpikeGroup2" instance=ExtResource( 7 )]
-position = Vector2( 2407.17, -47.3449 )
+position = Vector2( 2407.17, -40.916 )
 throwDirection = Vector2( -200, -150 )
 
 [node name="Spike2" parent="Objects/SpikeGroup2" instance=ExtResource( 7 )]
-position = Vector2( 2455.17, -47.3449 )
+position = Vector2( 2455.17, -40.916 )
 throwDirection = Vector2( -200, -150 )
 
 [node name="SpikeGroup3" type="Node2D" parent="Objects"]
 position = Vector2( 2546.56, -6.18591 )
 
-[node name="Spike" parent="Objects/SpikeGroup3" instance=ExtResource( 7 )]
-position = Vector2( 2425.17, 13.6551 )
-throwDirection = Vector2( -200, -150 )
-
-[node name="Spike2" parent="Objects/SpikeGroup3" instance=ExtResource( 7 )]
-position = Vector2( 2473.17, 13.6551 )
-throwDirection = Vector2( 200, -150 )
-
 [node name="SpikeGroup4" type="Node2D" parent="Objects"]
 position = Vector2( 2751.31, -1.95146 )
-
-[node name="Spike" parent="Objects/SpikeGroup4" instance=ExtResource( 7 )]
-position = Vector2( 2441.17, 9.65508 )
-throwDirection = Vector2( 200, -150 )
-
-[node name="Spike2" parent="Objects/SpikeGroup4" instance=ExtResource( 7 )]
-position = Vector2( 2489.17, 9.65508 )
-throwDirection = Vector2( 200, -150 )
 
 [node name="LargeSpikeGroup1" type="Node2D" parent="Objects"]
 
@@ -188,44 +174,44 @@ throwDirection = Vector2( 200, -150 )
 position = Vector2( 4140.32, -1.04448 )
 
 [node name="Spike" parent="Objects/LargeSpikeGroup1/SpikeGroup5" instance=ExtResource( 7 )]
-position = Vector2( 2353.17, 8.53505 )
+position = Vector2( 2353.17, 15.024 )
 throwDirection = Vector2( -200, -150 )
 
 [node name="Spike2" parent="Objects/LargeSpikeGroup1/SpikeGroup5" instance=ExtResource( 7 )]
-position = Vector2( 2401.17, 8.65508 )
+position = Vector2( 2401.17, 15.024 )
 throwDirection = Vector2( -200, -150 )
 
 [node name="SpikeGroup6" type="Node2D" parent="Objects/LargeSpikeGroup1"]
 position = Vector2( 4247.73, -0.952362 )
 
 [node name="Spike" parent="Objects/LargeSpikeGroup1/SpikeGroup6" instance=ExtResource( 7 )]
-position = Vector2( 2353.17, 8.65508 )
+position = Vector2( 2353.17, 15.024 )
 throwDirection = Vector2( -200, -150 )
 
 [node name="Spike2" parent="Objects/LargeSpikeGroup1/SpikeGroup6" instance=ExtResource( 7 )]
-position = Vector2( 2401.17, 8.65508 )
+position = Vector2( 2401.17, 15.024 )
 throwDirection = Vector2( -200, -150 )
 
 [node name="SpikeGroup7" type="Node2D" parent="Objects/LargeSpikeGroup1"]
 position = Vector2( 4353.74, -1.89716 )
 
 [node name="Spike" parent="Objects/LargeSpikeGroup1/SpikeGroup7" instance=ExtResource( 7 )]
-position = Vector2( 2353.17, 9.65508 )
+position = Vector2( 2353.17, 15.765 )
 throwDirection = Vector2( 200, -150 )
 
 [node name="Spike2" parent="Objects/LargeSpikeGroup1/SpikeGroup7" instance=ExtResource( 7 )]
-position = Vector2( 2401.17, 9.26276 )
+position = Vector2( 2401.17, 15.765 )
 throwDirection = Vector2( 200, -150 )
 
 [node name="SpikeGroup8" type="Node2D" parent="Objects/LargeSpikeGroup1"]
 position = Vector2( 4458.81, -1.98927 )
 
 [node name="Spike" parent="Objects/LargeSpikeGroup1/SpikeGroup8" instance=ExtResource( 7 )]
-position = Vector2( 2353.17, 9.65508 )
+position = Vector2( 2353.17, 15.92 )
 throwDirection = Vector2( 200, -150 )
 
 [node name="Spike2" parent="Objects/LargeSpikeGroup1/SpikeGroup8" instance=ExtResource( 7 )]
-position = Vector2( 2401.17, 9.65508 )
+position = Vector2( 2401.17, 15.92 )
 throwDirection = Vector2( 200, -150 )
 
 [node name="MovingSpike" parent="Objects" instance=ExtResource( 10 )]
@@ -236,15 +222,15 @@ throwDirection = Vector2( -50, -400 )
 [node name="JumpPadGroup1" type="Node2D" parent="Objects"]
 
 [node name="JumpPad" parent="Objects/JumpPadGroup1" instance=ExtResource( 9 )]
-position = Vector2( 5599.73, 10.4774 )
+position = Vector2( 5599.73, 19.795 )
 boostForce = Vector2( 200, -650 )
 
 [node name="JumpPad2" parent="Objects/JumpPadGroup1" instance=ExtResource( 9 )]
-position = Vector2( 6441.07, 11.3169 )
+position = Vector2( 6441.07, 17.744 )
 boostForce = Vector2( -400, -700 )
 
 [node name="JumpPad3" parent="Objects/JumpPadGroup1" instance=ExtResource( 9 )]
-position = Vector2( 6377.62, -74.5261 )
+position = Vector2( 6377.62, -71.164 )
 rotation = 1.5708
 boostForce = Vector2( 400, -350 )
 
@@ -313,3 +299,15 @@ throwDirection = Vector2( 100, 200 )
 position = Vector2( 87.379, -131.679 )
 scale = Vector2( 1, -1 )
 throwDirection = Vector2( 100, 2000 )
+
+[node name="Spike" parent="." instance=ExtResource( 7 )]
+position = Vector2( 5000.4, 13.9503 )
+
+[node name="Spike2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 5048.4, 13.9503 )
+
+[node name="Spike4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 5233.4, 13.9503 )
+
+[node name="Spike3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 5281.4, 13.9503 )
