@@ -21,5 +21,6 @@ var inputBundle = {
 	"left" : false,
 	"jump" : false,
 	"grab" : false,
-	"restart" : false
+	"restart" : false,
+	"checkPoint2" : false
 }
