@@ -1,13 +1,23 @@
+extends Node2D
+
+signal input
+
+func _process(delta):
+	if Input.is_action_just_pressed("restart"):
+		emit_signal("input", 10, -20)
+	elif Input.is_action_just_pressed("checkPoint1"):
+		emit_signal("input", 3000, -20)
+	elif Input.is_action_just_pressed("checkPoint2"):
+		emit_signal("input", 6000, -20)
+	elif Input.is_action_just_pressed("checkPoint3"):
+		emit_signal("input", 7800, -20)
+
 func retrieveInput():
 	var inputBundle = {
 		"right" : false,
 		"left" : false,
 		"jump" : false,
 		"grab" : false,
-		"restart" : false,
-		"checkPoint1" : false,
-		"checkPoint2" : false,
-		"checkPoint3" : false
 	}
 	
 	if Input.is_action_pressed("right"):
@@ -21,17 +31,5 @@ func retrieveInput():
 		
 	if Input.is_action_pressed("grab"):
 		inputBundle["grab"] = true
-	
-	if Input.is_action_just_pressed("restart"):
-		inputBundle["restart"] = true
-		
-	if Input.is_action_just_pressed("checkPoint1"):
-		inputBundle["checkPoint1"] = true
-		
-	if Input.is_action_just_pressed("checkPoint2"):
-		inputBundle["checkPoint2"] = true
-	
-	if Input.is_action_just_pressed("checkPoint3"):
-		inputBundle["checkPoint3"] = true
 		
 	return inputBundle
