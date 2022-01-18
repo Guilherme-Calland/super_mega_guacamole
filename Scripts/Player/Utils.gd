@@ -23,5 +23,6 @@ var inputBundle = {
 	"grab" : false,
 	"restart" : false,
 	"checkPoint1" : false,
-	"checkPoint2" : false
+	"checkPoint2" : false,
+	"checkPoint3" : false
 }
