@@ -37,13 +37,13 @@ func move(speed, gravity, jumpSpeed, wallPushForce, isOnFloor, isOnWall, isOnCei
 	
 		if wallCollisionDirection == "right":
 			if motion.x > 0:
-				motion.x = 20
+				motion.x = 5
 				#the big value fixes the
 				#is_on_wall flickering animation
 				# and also the world stops trembling
 		elif wallCollisionDirection == "left":
 			if motion.x < 0:
-				motion.x = -20
+				motion.x = -5
 	
 	if isOnFloor:
 		wallCollisionDirection = "none"
