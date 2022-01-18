@@ -19,6 +19,10 @@ config/name="SuperMegaGuacamole"
 run/main_scene="res://Scenes/Levels/Level 1.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/stretch/aspect="keep"
+
 [input]
 
 ui_left={
@@ -90,4 +94,6 @@ checkPoint3={
 
 [rendering]
 
+quality/subsurface_scattering/quality=2
+quality/subsurface_scattering/scale=4
 environment/default_environment="res://default_env.tres"
