@@ -24,7 +24,6 @@ func retrieveInput():
 	u.inputBundle = u.input.retrieveInput()
 
 func move():
-	print(position.x)
 	var motion = u.motionBundle["motion"]
 	# once move_and slide is called this changes the
 	# is_on_wall() and is_on_ceiling()

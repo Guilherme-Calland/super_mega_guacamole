@@ -19,8 +19,17 @@ config/name="SuperMegaGuacamole"
 run/main_scene="res://Scenes/Levels/Level 1.tscn"
 config/icon="res://icon.png"
 
+[debug]
+
+settings/fps/force_fps=60
+
 [display]
 
+window/size/width=640
+window/size/height=360
+window/size/resizable=false
+window/size/fullscreen=true
+window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
 [input]

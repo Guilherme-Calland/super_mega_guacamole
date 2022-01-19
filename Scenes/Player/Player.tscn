@@ -33,15 +33,15 @@ animations = [ {
 "name": "hurt",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "run",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "pregrab",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -80,4 +80,5 @@ one_way_collision = true
 script = ExtResource( 10 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 212.267, 1.44396 )
 current = true

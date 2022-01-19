@@ -225,7 +225,6 @@ throwDirection = Vector2( 200, -150 )
 
 [node name="MovingSpike" parent="Objects" instance=ExtResource( 10 )]
 position = Vector2( 7407.07, 10.3167 )
-dislocation = 50
 throwDirection = Vector2( -50, -450 )
 
 [node name="JumpPadGroup1" type="Node2D" parent="Objects"]

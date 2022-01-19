@@ -1,18 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://TileSet/StoneTileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Friends/RockBuddy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Player/Player.gd" type="Script" id=4]
 
 [node name="TestingArena" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 448.826, -67.4997 )
+position = Vector2( 512.737, 299.991 )
 z_index = 200
-script = null
+script = ExtResource( 4 )
 
 [node name="RockBuddy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 287.365, -40.4117 )
+position = Vector2( 243.237, 329.043 )
+
+[node name="RockBuddy2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 917.013, 329.043 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
