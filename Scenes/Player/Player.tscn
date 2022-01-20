@@ -18,9 +18,14 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ) ],
 "loop": true,
-"name": "grab",
+"name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "hurt",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -28,20 +33,15 @@ animations = [ {
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "hurt",
+"name": "grab",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "pregrab",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "run",
-"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -50,6 +50,7 @@ animations = [ {
 extents = Vector2( 4.40286, 2.88663 )
 
 [node name="Player" type="KinematicBody2D"]
+position = Vector2( 8.59186, 0 )
 collision_mask = 14
 script = ExtResource( 6 )
 wallPushForce = 200
@@ -80,5 +81,5 @@ one_way_collision = true
 script = ExtResource( 10 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 212.267, 1.44396 )
+position = Vector2( 242.679, -9.1741 )
 current = true

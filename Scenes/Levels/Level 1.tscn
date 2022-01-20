@@ -17,7 +17,7 @@
 [node name="Level 1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -12.1658, -313.508 )
+position = Vector2( -229.54, -13.6267 )
 z_index = 100
 
 [node name="Tiles" type="Node2D" parent="."]
@@ -72,6 +72,7 @@ __meta__ = {
 }
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+visible = false
 position = Vector2( -550.631, -291.958 )
 z_index = 2
 motion_scale = Vector2( 0.75, 1 )
